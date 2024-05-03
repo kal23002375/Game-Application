@@ -10,7 +10,7 @@ namespace ProjectName
         Clubs, Spades, Diamonds, Hearts
     }
     public enum Faces { // Enum containing faces and their values
-        Ace = 1,/* Two = 2, Three = 3, Four = 4, Five = 5, Six = 6, Seven = 7, Eight = 8,Nine = 9, Ten = 10, Jack = 11, Queen = 12, */King = 13,
+        Ace = 1, Two = 2, Three = 3, Four = 4, Five = 5, Six = 6, Seven = 7, Eight = 8,Nine = 9, Ten = 10, Jack = 11, Queen = 12, King = 13,
     }
     /// <summary>
     /// Playing cards data structure, holds its face and suit
@@ -128,118 +128,6 @@ namespace ProjectName
             _Cards.Add(card);
         } // End PlaceIntoDeck
     } // End of Deck class
-    /// <summary>
-    /// Hand class
-    /// 1 - Attributes
-    /// 2 - Constructor, creates list and sets score to 0
-    /// 3 - Returns hand score
-    /// 4 - Count list length
-    /// 5 - Function for adding card to hand, updates score
-    /// 6 - Remove Card from Hand
-    /// 7 - Returns face of the top card
-    /// 8 - Returns the hand as a string
-    /// 9 - Clears the hand
-    /// </summary>
-    public class Hand
-    {
-        // 1
-        private List<PlayingCard> _Cards;
-        private int score;
-        int aces = 0;
-        public Hand() // 2
-        {
-            _Cards = new List<PlayingCard>();
-            score = 0;
-        } // End of hand constructor
-        /// <summary>
-        /// Returns the score of the hand
-        /// </summary>
-        public int Value // 3
-        {
-            get { return score; }
-        }
-        /// <summary>
-        /// Returns the amount of cards in the hand
-        /// </summary>
-        public int Count // 4
-        {
-            get { return _Cards.Count; }
-        }
-        /// <summary>
-        /// Adds a card to deck, updates the Hand's score
-        /// If statements for when card face is jack, queen, king
-        /// If statements to handle Aces
-        /// </summary>
-        /// <param name="card"></param>
-        public void AddCard(PlayingCard card) // 5
-        {
-            if (card.face == "Ace" && score <= 10)
-            {
-                score += 11;
-                card.Value(11);
-                aces++;
-            }
-            else if (card.Value()>10)
-            {
-                score += 10;
-                card.Value(10);
-            }
-            else
-            {
-                score += card.Value();
-            }
-            _Cards.Add(card);
-            while (score>21 && aces > 0)
-            {
-                foreach (PlayingCard c in _Cards)
-                {
-                    if (c.face == "Ace" && c.Value()!=1)
-                    {
-                        aces--;
-                        score-=10;
-                        c.Value(1);
-                        break;
-                    }
-                }
-            }
-        }
-        /// <summary>
-        /// Remove a card from the top of the hand
-        /// </summary>
-        /// <returns></returns>
-        public PlayingCard RemoveCard() // 6
-        {
-            PlayingCard card = _Cards[0];
-            _Cards.Remove(card);
-            return card;
-        }
-        /// <summary>
-        /// Returns the face of the card at the top of the hand
-        /// </summary>
-        /// <returns></returns>
-        public string TopCardFace() // 7
-        {
-            return _Cards[0].face;
-        }
-        /// <summary>
-        /// Returns the hand's cards as a string
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString() // 8
-        {
-            string returnString = "";
-            foreach (var card in _Cards)
-            {
-                returnString += card.ToString()+"\n";
-            }
-            return returnString;
-        }
-        /// <summary>
-        /// Clears the PlayingCard list
-        /// </summary>
-        public void Clear() // 9
-        {
-            _Cards.Clear();
-        }
-    }
+    
+    
 }

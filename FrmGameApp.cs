@@ -378,7 +378,7 @@ namespace ProjectName {
         private void BtnPlayGameV2_Click(object? sender, EventArgs e)
         {
             PlayersName = TbxPlayersName.Text.ToString(); //a 
-            GameName = CbxGame.Text.ToString();  // b
+            GameName = CbxGame.TextS.ToString();  // b
             PlayGame(GameName); // c
             Feedback = FindGameWinner(); // d
             DisplayGameResult(); // e
