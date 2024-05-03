@@ -28,268 +28,220 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnPlayGame = new System.Windows.Forms.Button();
-            this.BtnFindOverallWinner = new System.Windows.Forms.Button();
-            this.TbxPlayersName = new System.Windows.Forms.TextBox();
-            this.CbxGame = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.LblComputerScore = new System.Windows.Forms.Label();
-            this.LblPlayerScore = new System.Windows.Forms.Label();
-            this.LsvGameStatistics = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.BtnHit = new System.Windows.Forms.Button();
-            this.BtnStand = new System.Windows.Forms.Button();
-            this.LblPlayersScoreBlackjack = new System.Windows.Forms.Label();
-            this.LblCompScoreBlackjack = new System.Windows.Forms.Label();
-            this.LblPlayersHand = new System.Windows.Forms.Label();
-            this.LblCompsHand = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            BtnPlayGame = new Button();
+            BtnFindOverallWinner = new Button();
+            TbxPlayersName = new TextBox();
+            CbxGame = new ComboBox();
+            label1 = new Label();
+            label2 = new Label();
+            LsvGameStatistics = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            label5 = new Label();
+            label6 = new Label();
+            BtnHit = new Button();
+            BtnStand = new Button();
+            LblPlayersScoreBlackjack = new Label();
+            LblCompScoreBlackjack = new Label();
+            LblPlayersHand = new Label();
+            LblCompsHand = new Label();
+            label7 = new Label();
+            SuspendLayout();
             // 
             // BtnPlayGame
             // 
-            this.BtnPlayGame.Location = new System.Drawing.Point(10, 164);
-            this.BtnPlayGame.Name = "BtnPlayGame";
-            this.BtnPlayGame.Size = new System.Drawing.Size(75, 23);
-            this.BtnPlayGame.TabIndex = 0;
-            this.BtnPlayGame.Text = "Play Game";
-            this.BtnPlayGame.UseVisualStyleBackColor = true;
+            BtnPlayGame.Location = new Point(10, 164);
+            BtnPlayGame.Name = "BtnPlayGame";
+            BtnPlayGame.Size = new Size(75, 23);
+            BtnPlayGame.TabIndex = 0;
+            BtnPlayGame.Text = "Play Game";
+            BtnPlayGame.UseVisualStyleBackColor = true;
             // 
             // BtnFindOverallWinner
             // 
-            this.BtnFindOverallWinner.Location = new System.Drawing.Point(10, 419);
-            this.BtnFindOverallWinner.Name = "BtnFindOverallWinner";
-            this.BtnFindOverallWinner.Size = new System.Drawing.Size(152, 23);
-            this.BtnFindOverallWinner.TabIndex = 1;
-            this.BtnFindOverallWinner.Text = "Find Overall Winner";
-            this.BtnFindOverallWinner.UseVisualStyleBackColor = true;
+            BtnFindOverallWinner.Location = new Point(10, 419);
+            BtnFindOverallWinner.Name = "BtnFindOverallWinner";
+            BtnFindOverallWinner.Size = new Size(152, 23);
+            BtnFindOverallWinner.TabIndex = 1;
+            BtnFindOverallWinner.Text = "Find Overall Winner";
+            BtnFindOverallWinner.UseVisualStyleBackColor = true;
             // 
             // TbxPlayersName
             // 
-            this.TbxPlayersName.Location = new System.Drawing.Point(85, 92);
-            this.TbxPlayersName.Name = "TbxPlayersName";
-            this.TbxPlayersName.Size = new System.Drawing.Size(121, 23);
-            this.TbxPlayersName.TabIndex = 2;
+            TbxPlayersName.Location = new Point(85, 92);
+            TbxPlayersName.Name = "TbxPlayersName";
+            TbxPlayersName.Size = new Size(121, 23);
+            TbxPlayersName.TabIndex = 2;
             // 
             // CbxGame
             // 
-            this.CbxGame.FormattingEnabled = true;
-            this.CbxGame.Location = new System.Drawing.Point(86, 120);
-            this.CbxGame.Name = "CbxGame";
-            this.CbxGame.Size = new System.Drawing.Size(121, 23);
-            this.CbxGame.TabIndex = 3;
+            CbxGame.DropDownStyle = ComboBoxStyle.DropDownList;
+            CbxGame.FormattingEnabled = true;
+            CbxGame.Location = new Point(86, 120);
+            CbxGame.Name = "CbxGame";
+            CbxGame.Size = new Size(121, 23);
+            CbxGame.TabIndex = 3;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 100);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Enter Name";
+            label1.AutoSize = true;
+            label1.Location = new Point(10, 100);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 15);
+            label1.TabIndex = 4;
+            label1.Text = "Enter Name";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 124);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Pick Game";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(169, 168);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Computer Score";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(169, 202);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Player Score";
-            // 
-            // LblComputerScore
-            // 
-            this.LblComputerScore.AutoSize = true;
-            this.LblComputerScore.Location = new System.Drawing.Point(280, 168);
-            this.LblComputerScore.Name = "LblComputerScore";
-            this.LblComputerScore.Size = new System.Drawing.Size(13, 15);
-            this.LblComputerScore.TabIndex = 8;
-            this.LblComputerScore.Text = "0";
-            // 
-            // LblPlayerScore
-            // 
-            this.LblPlayerScore.AutoSize = true;
-            this.LblPlayerScore.Location = new System.Drawing.Point(280, 202);
-            this.LblPlayerScore.Name = "LblPlayerScore";
-            this.LblPlayerScore.Size = new System.Drawing.Size(13, 15);
-            this.LblPlayerScore.TabIndex = 9;
-            this.LblPlayerScore.Text = "0";
+            label2.AutoSize = true;
+            label2.Location = new Point(10, 124);
+            label2.Name = "label2";
+            label2.Size = new Size(63, 15);
+            label2.TabIndex = 5;
+            label2.Text = "Pick Game";
             // 
             // LsvGameStatistics
             // 
-            this.LsvGameStatistics.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.LsvGameStatistics.GridLines = true;
-            this.LsvGameStatistics.Location = new System.Drawing.Point(10, 237);
-            this.LsvGameStatistics.Name = "LsvGameStatistics";
-            this.LsvGameStatistics.Size = new System.Drawing.Size(457, 161);
-            this.LsvGameStatistics.TabIndex = 10;
-            this.LsvGameStatistics.UseCompatibleStateImageBehavior = false;
-            this.LsvGameStatistics.View = System.Windows.Forms.View.Details;
+            LsvGameStatistics.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            LsvGameStatistics.GridLines = true;
+            LsvGameStatistics.Location = new Point(10, 237);
+            LsvGameStatistics.Name = "LsvGameStatistics";
+            LsvGameStatistics.Size = new Size(457, 161);
+            LsvGameStatistics.TabIndex = 10;
+            LsvGameStatistics.UseCompatibleStateImageBehavior = false;
+            LsvGameStatistics.View = View.Details;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Game Name";
-            this.columnHeader1.Width = 100;
+            columnHeader1.Text = "Game Name";
+            columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Players Score";
-            this.columnHeader2.Width = 100;
+            columnHeader2.Text = "Players Score";
+            columnHeader2.Width = 100;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Computers Score";
-            this.columnHeader3.Width = 100;
+            columnHeader3.Text = "Computers Score";
+            columnHeader3.Width = 100;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Winner";
-            this.columnHeader4.Width = 100;
+            columnHeader4.Text = "Winner";
+            columnHeader4.Width = 100;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(487, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 30);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Players Hand\r\nSuit Face Value";
+            label5.AutoSize = true;
+            label5.Location = new Point(487, 54);
+            label5.Name = "label5";
+            label5.Size = new Size(85, 30);
+            label5.TabIndex = 11;
+            label5.Text = "Players Hand\r\nSuit Face Value";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(659, 54);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 30);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Computers Hand\r\nSuit Face Value";
+            label6.AutoSize = true;
+            label6.Location = new Point(659, 54);
+            label6.Name = "label6";
+            label6.Size = new Size(98, 30);
+            label6.TabIndex = 12;
+            label6.Text = "Computers Hand\r\nSuit Face Value";
             // 
             // BtnHit
             // 
-            this.BtnHit.Location = new System.Drawing.Point(488, 203);
-            this.BtnHit.Name = "BtnHit";
-            this.BtnHit.Size = new System.Drawing.Size(75, 23);
-            this.BtnHit.TabIndex = 13;
-            this.BtnHit.Text = "Hit";
-            this.BtnHit.UseVisualStyleBackColor = true;
+            BtnHit.Location = new Point(488, 203);
+            BtnHit.Name = "BtnHit";
+            BtnHit.Size = new Size(75, 23);
+            BtnHit.TabIndex = 13;
+            BtnHit.Text = "Hit";
+            BtnHit.UseVisualStyleBackColor = true;
             // 
             // BtnStand
             // 
-            this.BtnStand.Location = new System.Drawing.Point(660, 202);
-            this.BtnStand.Name = "BtnStand";
-            this.BtnStand.Size = new System.Drawing.Size(75, 23);
-            this.BtnStand.TabIndex = 14;
-            this.BtnStand.Text = "Stand";
-            this.BtnStand.UseVisualStyleBackColor = true;
+            BtnStand.Location = new Point(660, 202);
+            BtnStand.Name = "BtnStand";
+            BtnStand.Size = new Size(75, 23);
+            BtnStand.TabIndex = 14;
+            BtnStand.Text = "Stand";
+            BtnStand.UseVisualStyleBackColor = true;
             // 
             // LblPlayersScoreBlackjack
             // 
-            this.LblPlayersScoreBlackjack.AutoSize = true;
-            this.LblPlayersScoreBlackjack.Location = new System.Drawing.Point(488, 185);
-            this.LblPlayersScoreBlackjack.Name = "LblPlayersScoreBlackjack";
-            this.LblPlayersScoreBlackjack.Size = new System.Drawing.Size(45, 15);
-            this.LblPlayersScoreBlackjack.TabIndex = 15;
-            this.LblPlayersScoreBlackjack.Text = "Score : ";
+            LblPlayersScoreBlackjack.AutoSize = true;
+            LblPlayersScoreBlackjack.Location = new Point(488, 185);
+            LblPlayersScoreBlackjack.Name = "LblPlayersScoreBlackjack";
+            LblPlayersScoreBlackjack.Size = new Size(45, 15);
+            LblPlayersScoreBlackjack.TabIndex = 15;
+            LblPlayersScoreBlackjack.Text = "Score : ";
             // 
             // LblCompScoreBlackjack
             // 
-            this.LblCompScoreBlackjack.AutoSize = true;
-            this.LblCompScoreBlackjack.Location = new System.Drawing.Point(660, 184);
-            this.LblCompScoreBlackjack.Name = "LblCompScoreBlackjack";
-            this.LblCompScoreBlackjack.Size = new System.Drawing.Size(45, 15);
-            this.LblCompScoreBlackjack.TabIndex = 16;
-            this.LblCompScoreBlackjack.Text = "Score : ";
+            LblCompScoreBlackjack.AutoSize = true;
+            LblCompScoreBlackjack.Location = new Point(660, 184);
+            LblCompScoreBlackjack.Name = "LblCompScoreBlackjack";
+            LblCompScoreBlackjack.Size = new Size(45, 15);
+            LblCompScoreBlackjack.TabIndex = 16;
+            LblCompScoreBlackjack.Text = "Score : ";
             // 
             // LblPlayersHand
             // 
-            this.LblPlayersHand.AutoSize = true;
-            this.LblPlayersHand.Location = new System.Drawing.Point(487, 96);
-            this.LblPlayersHand.Name = "LblPlayersHand";
-            this.LblPlayersHand.Size = new System.Drawing.Size(113, 45);
-            this.LblPlayersHand.TabIndex = 17;
-            this.LblPlayersHand.Text = "Card Suit and Name\r\nCard Suit and Name\r\nCard Suit and Name\r\n";
+            LblPlayersHand.AutoSize = true;
+            LblPlayersHand.Location = new Point(487, 96);
+            LblPlayersHand.Name = "LblPlayersHand";
+            LblPlayersHand.Size = new Size(113, 45);
+            LblPlayersHand.TabIndex = 17;
+            LblPlayersHand.Text = "Card Suit and Name\r\nCard Suit and Name\r\nCard Suit and Name\r\n";
             // 
             // LblCompsHand
             // 
-            this.LblCompsHand.AutoSize = true;
-            this.LblCompsHand.Location = new System.Drawing.Point(659, 96);
-            this.LblCompsHand.Name = "LblCompsHand";
-            this.LblCompsHand.Size = new System.Drawing.Size(113, 45);
-            this.LblCompsHand.TabIndex = 18;
-            this.LblCompsHand.Text = "Card Suit and Name\r\nCard Suit and Name\r\nCard Suit and Name\r\n";
+            LblCompsHand.AutoSize = true;
+            LblCompsHand.Location = new Point(659, 96);
+            LblCompsHand.Name = "LblCompsHand";
+            LblCompsHand.Size = new Size(113, 45);
+            LblCompsHand.TabIndex = 18;
+            LblCompsHand.Text = "Card Suit and Name\r\nCard Suit and Name\r\nCard Suit and Name\r\n";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Lucida Console", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(10, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(337, 64);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Games application\r\n-Eriks";
+            label7.AutoSize = true;
+            label7.Font = new Font("Lucida Console", 24F, FontStyle.Underline, GraphicsUnit.Point);
+            label7.Location = new Point(10, 9);
+            label7.Name = "label7";
+            label7.Size = new Size(337, 64);
+            label7.TabIndex = 19;
+            label7.Text = "Games application\r\n-Eriks";
             // 
             // FrmGameApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.LblCompsHand);
-            this.Controls.Add(this.LblPlayersHand);
-            this.Controls.Add(this.LblCompScoreBlackjack);
-            this.Controls.Add(this.LblPlayersScoreBlackjack);
-            this.Controls.Add(this.BtnStand);
-            this.Controls.Add(this.BtnHit);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.LsvGameStatistics);
-            this.Controls.Add(this.LblPlayerScore);
-            this.Controls.Add(this.LblComputerScore);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.CbxGame);
-            this.Controls.Add(this.TbxPlayersName);
-            this.Controls.Add(this.BtnFindOverallWinner);
-            this.Controls.Add(this.BtnPlayGame);
-            this.Name = "FrmGameApp";
-            this.Text = "Game App by Eriks Kalnins";
-            this.Load += new System.EventHandler(this.FrmGameApp_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 192, 128);
+            ClientSize = new Size(800, 450);
+            Controls.Add(label7);
+            Controls.Add(LblCompsHand);
+            Controls.Add(LblPlayersHand);
+            Controls.Add(LblCompScoreBlackjack);
+            Controls.Add(LblPlayersScoreBlackjack);
+            Controls.Add(BtnStand);
+            Controls.Add(BtnHit);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(LsvGameStatistics);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(CbxGame);
+            Controls.Add(TbxPlayersName);
+            Controls.Add(BtnFindOverallWinner);
+            Controls.Add(BtnPlayGame);
+            Name = "FrmGameApp";
+            Text = "Game App by Eriks Kalnins";
+            Load += FrmGameApp_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
