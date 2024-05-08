@@ -81,7 +81,11 @@ namespace ProjectName
             {
                 ComputersHand.AddCard(GameDeck.Deal());
             }
-            if (PlayersHand.Value > 21)
+            if (PlayersHand.Value > 21 && ComputersHand.Value > 21){
+                Feedback = "Nobody wins!";
+                Winner = "Draw";
+            }
+            else if (PlayersHand.Value > 21)
             {
                 Feedback = "Bust!";
                 Winner = "Computer";
