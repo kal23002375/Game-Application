@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectName.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,7 +36,7 @@ namespace ProjectName {
             CbxGame.Enabled = false; // c
             BtnPlayGame.Enabled = false; // d
             LsvGameStatistics.Items.Clear(); // e
-            BtnHit.Enabled= false; // f
+            BtnHit.Enabled = false; // f
             BtnStand.Enabled = false; // g
         }
         /// <summary>
@@ -46,9 +47,9 @@ namespace ProjectName {
         /// </summary>
         private void FillCbxGame()
         {
-            string[] availableGames = { "Dice", "Ten Sided Dice", "Twenty Sided Dice","Blackjack","High Card" }; // a
+            string[] availableGames = { "Dice", "Ten Sided Dice", "Twenty Sided Dice", "Blackjack", "High Card" }; // a
             CbxGame.Items.Clear(); // b
-            foreach (string game in availableGames) 
+            foreach (string game in availableGames)
                 CbxGame.Items.Add(game); // c
         }
         /// <summary>
@@ -69,9 +70,13 @@ namespace ProjectName {
             this.CbxGame.SelectedIndexChanged += new System.EventHandler(this.CbxGame_SelectedIndexChanged);
             this.BtnHit.Click += new System.EventHandler(this.BtnHit_Click);
             this.BtnStand.Click += new System.EventHandler(this.BtnStand_Click);
+            /*this.Controls.Add(this.createPicture("sixdiamonds", new Point(600,300)));
+            PictureBox pict = this.createPicture("eightclubs", new Point(700, 300));
+            this.Controls.Add(pict);
+            this.Controls.Remove(pict);*/
         }
-        
-        
+
+
         /// <summary>
         /// Handler for combo box changing
         /// If a game is selected, enable play game button
@@ -80,7 +85,7 @@ namespace ProjectName {
         /// <param name="e"></param>
         private void CbxGame_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            if (CbxGame.SelectedIndex != -1) 
+            if (CbxGame.SelectedIndex != -1)
                 BtnPlayGame.Enabled = true;
         }
         /// <summary>
@@ -158,7 +163,7 @@ namespace ProjectName {
                     playerWins++;
                 else if (result.StartsWith("Computer"))
                     computerWins++;
-            } 
+            }
 
             if (playerWins > computerWins)//c
                 result = $"{PlayersName} wins as they won {playerWins} games which is higher than {computerWins}";
@@ -178,7 +183,7 @@ namespace ProjectName {
         private void DisplayGameResult()
         {
             MessageBox.Show(Feedback, "Game Result");
-            string[] row = {GameName, PlayersScore.ToString(),ComputerScore.ToString(), Winner}; //a
+            string[] row = { GameName, PlayersScore.ToString(), ComputerScore.ToString(), Winner }; //a
             var listViewItem = new ListViewItem(row); //b
             LsvGameStatistics.Items.Add(listViewItem); //c
         }
@@ -195,7 +200,7 @@ namespace ProjectName {
             string feedback = "";
             if (PlayersScore == ComputerScore) // a
             {
-                feedback = $"Draw as {PlayersScore} was equal to {ComputerScore}"; 
+                feedback = $"Draw as {PlayersScore} was equal to {ComputerScore}";
                 Winner = "Draw";
             }
             else if (PlayersScore > ComputerScore) // b
@@ -223,11 +228,11 @@ namespace ProjectName {
         /// <param name="gameName"></param>
         private void PlayGame(string gameName)
         {
-            try 
+            try
             {
                 switch (gameName) // b
                 {
-                    case "Dice": 
+                    case "Dice":
                         PlayDiceGame(6); break; // c
                     case "Ten Sided Dice":
                         PlayDiceGame(10); break; // d
@@ -240,10 +245,20 @@ namespace ProjectName {
                     default:
                         MessageBox.Show("Game Not Implemented", "Error"); break; // h
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Not Implemented Correctly " + ex.Message, "Exception Error"); // a
             }
+        }
+        private PictureBox createPicture(string card, Point loc)
+        {
+            PictureBox picture = new PictureBox();
+            picture.Size = new Size(50, 100);
+            picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            picture.Image = (Image)Properties.Resources.ResourceManager.GetObject(card);
+            picture.Location = loc;
+            return picture;
         }
         /// <summary>
         /// Play blackjack function
@@ -257,16 +272,15 @@ namespace ProjectName {
         /// </summary>
         private void PlayBlackjack()
         {
-            (Label, Label, Label, Label) Displays= (LblPlayersHand, LblCompsHand, LblPlayersScoreBlackjack, LblCompScoreBlackjack); // a
+            (Label, Label) Displays = (LblPlayersScoreBlackjack, LblCompScoreBlackjack); // a
             Displays.Item1.Text = ""; // b
             Displays.Item2.Text = "";
-            Displays.Item3.Text = "";
-            Displays.Item4.Text = "";
             BtnPlayGame.Enabled = false; // c
             BtnHit.Enabled = true; // d
             BtnStand.Enabled = true; // e
             blackjack = new Blackjack(Displays); // f
             blackjack.UpdateDisplay(); // g
+            UpdateBlackjack();
         }
         /// <summary>
         /// Handler for the hit button for blackjack
@@ -283,6 +297,22 @@ namespace ProjectName {
                 Stand(); // b
             }
             blackjack.UpdateDisplay(); // c
+            UpdateBlackjack();
+        }
+        private void UpdateBlackjack()
+        {
+            PnlPlayersHand.Controls.Clear();
+            PnlComputersHand.Controls.Clear();
+            foreach (var pict in blackjack.ReturnPictures().Item1)
+            {
+                PnlPlayersHand.Controls.Add(pict);
+                pict.BringToFront();
+            }
+            foreach (var pict in blackjack.ReturnPictures().Item2)
+            {
+                PnlComputersHand.Controls.Add(pict);
+                pict.BringToFront();
+            }
         }
         /// <summary>
         /// Handler for the stand button in blackjack
@@ -293,6 +323,7 @@ namespace ProjectName {
         private void BtnStand_Click(object? sender, EventArgs e)
         {
             Stand(); //a
+            UpdateBlackjack();
         }
         /// <summary>
         /// Stand function to handle if the game has to stand
@@ -308,8 +339,8 @@ namespace ProjectName {
                 Winner = PlayersName;
             DisplayGameResult(); //c
             BtnHit.Enabled = false; //d
-            BtnStand.Enabled=false;
-            BtnPlayGame.Enabled=true;
+            BtnStand.Enabled = false;
+            BtnPlayGame.Enabled = true;
         }
         /// <summary>
         /// Play high card function
@@ -331,7 +362,7 @@ namespace ProjectName {
             DisplayGameResult(); //e
         }
 
-        
+
         /// <summary>
         /// Play Dice Game function
         /// a - Exception handling in the case of an error
@@ -357,13 +388,18 @@ namespace ProjectName {
                 MessageBox.Show("Not Implemented Correctly " + ex.Message, "Exception Error");
             }
         }
+
+        private void PnlCardDisplay_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
         /*private char GetReply(string prompt)
 {
-   string temp = InputBox.Show("Continue?", prompt); // a
-   if (temp.ToUpper().StartsWith('Y'))
-       return 'Y'; // b
-   else
-       return 'N'; // c
+string temp = InputBox.Show("Continue?", prompt); // a
+if (temp.ToUpper().StartsWith('Y'))
+return 'Y'; // b
+else
+return 'N'; // c
 }*/
         /*/// <summary>
         /// Play game button handler function

@@ -45,9 +45,11 @@
             BtnStand = new Button();
             LblPlayersScoreBlackjack = new Label();
             LblCompScoreBlackjack = new Label();
-            LblPlayersHand = new Label();
-            LblCompsHand = new Label();
             label7 = new Label();
+            PnlPlayersHand = new Panel();
+            PnlComputersHand = new Panel();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // BtnPlayGame
@@ -106,9 +108,9 @@
             // 
             LsvGameStatistics.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             LsvGameStatistics.GridLines = true;
-            LsvGameStatistics.Location = new Point(10, 237);
+            LsvGameStatistics.Location = new Point(10, 193);
             LsvGameStatistics.Name = "LsvGameStatistics";
-            LsvGameStatistics.Size = new Size(457, 161);
+            LsvGameStatistics.Size = new Size(403, 205);
             LsvGameStatistics.TabIndex = 10;
             LsvGameStatistics.UseCompatibleStateImageBehavior = false;
             LsvGameStatistics.View = View.Details;
@@ -136,24 +138,26 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(487, 54);
+            label5.BackColor = Color.FromArgb(72, 120, 96);
+            label5.Location = new Point(421, 9);
             label5.Name = "label5";
-            label5.Size = new Size(85, 30);
+            label5.Size = new Size(76, 15);
             label5.TabIndex = 11;
-            label5.Text = "Players Hand\r\nSuit Face Value";
+            label5.Text = "Players Hand\r";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(659, 54);
+            label6.BackColor = Color.FromArgb(72, 120, 96);
+            label6.Location = new Point(422, 242);
             label6.Name = "label6";
-            label6.Size = new Size(98, 30);
+            label6.Size = new Size(98, 15);
             label6.TabIndex = 12;
-            label6.Text = "Computers Hand\r\nSuit Face Value";
+            label6.Text = "Computers Hand\r";
             // 
             // BtnHit
             // 
-            BtnHit.Location = new Point(488, 203);
+            BtnHit.Location = new Point(7, 49);
             BtnHit.Name = "BtnHit";
             BtnHit.Size = new Size(75, 23);
             BtnHit.TabIndex = 13;
@@ -162,7 +166,7 @@
             // 
             // BtnStand
             // 
-            BtnStand.Location = new Point(660, 202);
+            BtnStand.Location = new Point(88, 49);
             BtnStand.Name = "BtnStand";
             BtnStand.Size = new Size(75, 23);
             BtnStand.TabIndex = 14;
@@ -172,7 +176,8 @@
             // LblPlayersScoreBlackjack
             // 
             LblPlayersScoreBlackjack.AutoSize = true;
-            LblPlayersScoreBlackjack.Location = new Point(488, 185);
+            LblPlayersScoreBlackjack.BackColor = Color.FromArgb(72, 120, 96);
+            LblPlayersScoreBlackjack.Location = new Point(421, 32);
             LblPlayersScoreBlackjack.Name = "LblPlayersScoreBlackjack";
             LblPlayersScoreBlackjack.Size = new Size(45, 15);
             LblPlayersScoreBlackjack.TabIndex = 15;
@@ -181,29 +186,12 @@
             // LblCompScoreBlackjack
             // 
             LblCompScoreBlackjack.AutoSize = true;
-            LblCompScoreBlackjack.Location = new Point(660, 184);
+            LblCompScoreBlackjack.BackColor = Color.FromArgb(72, 120, 96);
+            LblCompScoreBlackjack.Location = new Point(422, 265);
             LblCompScoreBlackjack.Name = "LblCompScoreBlackjack";
             LblCompScoreBlackjack.Size = new Size(45, 15);
             LblCompScoreBlackjack.TabIndex = 16;
             LblCompScoreBlackjack.Text = "Score : ";
-            // 
-            // LblPlayersHand
-            // 
-            LblPlayersHand.AutoSize = true;
-            LblPlayersHand.Location = new Point(487, 96);
-            LblPlayersHand.Name = "LblPlayersHand";
-            LblPlayersHand.Size = new Size(113, 45);
-            LblPlayersHand.TabIndex = 17;
-            LblPlayersHand.Text = "Card Suit and Name\r\nCard Suit and Name\r\nCard Suit and Name\r\n";
-            // 
-            // LblCompsHand
-            // 
-            LblCompsHand.AutoSize = true;
-            LblCompsHand.Location = new Point(659, 96);
-            LblCompsHand.Name = "LblCompsHand";
-            LblCompsHand.Size = new Size(113, 45);
-            LblCompsHand.TabIndex = 18;
-            LblCompsHand.Text = "Card Suit and Name\r\nCard Suit and Name\r\nCard Suit and Name\r\n";
             // 
             // label7
             // 
@@ -215,19 +203,45 @@
             label7.TabIndex = 19;
             label7.Text = "Games application\r\n-Eriks";
             // 
+            // PnlPlayersHand
+            // 
+            PnlPlayersHand.BackColor = Color.FromArgb(115, 171, 143);
+            PnlPlayersHand.Location = new Point(422, 79);
+            PnlPlayersHand.Name = "PnlPlayersHand";
+            PnlPlayersHand.Size = new Size(560, 160);
+            PnlPlayersHand.TabIndex = 20;
+            PnlPlayersHand.Paint += PnlCardDisplay_Paint;
+            // 
+            // PnlComputersHand
+            // 
+            PnlComputersHand.BackColor = Color.FromArgb(115, 171, 143);
+            PnlComputersHand.Location = new Point(422, 282);
+            PnlComputersHand.Name = "PnlComputersHand";
+            PnlComputersHand.Size = new Size(560, 160);
+            PnlComputersHand.TabIndex = 21;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(72, 120, 96);
+            panel1.Controls.Add(BtnStand);
+            panel1.Controls.Add(BtnHit);
+            panel1.Location = new Point(415, -2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(576, 453);
+            panel1.TabIndex = 21;
+            // 
             // FrmGameApp
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 192, 128);
-            ClientSize = new Size(800, 450);
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BackColor = Color.Silver;
+            ClientSize = new Size(987, 450);
+            Controls.Add(PnlComputersHand);
+            Controls.Add(PnlPlayersHand);
             Controls.Add(label7);
-            Controls.Add(LblCompsHand);
-            Controls.Add(LblPlayersHand);
             Controls.Add(LblCompScoreBlackjack);
             Controls.Add(LblPlayersScoreBlackjack);
-            Controls.Add(BtnStand);
-            Controls.Add(BtnHit);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(LsvGameStatistics);
@@ -237,9 +251,11 @@
             Controls.Add(TbxPlayersName);
             Controls.Add(BtnFindOverallWinner);
             Controls.Add(BtnPlayGame);
+            Controls.Add(panel1);
             Name = "FrmGameApp";
             Text = "Game App by Eriks Kalnins";
             Load += FrmGameApp_Load;
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -267,10 +283,11 @@
         private Button BtnStand;
         private Label LblPlayersScore;
         private Label LblCompScore;
-        private Label LblPlayersHand;
-        private Label LblCompsHand;
         private Label LblPlayersScoreBlackjack;
         private Label LblCompScoreBlackjack;
         private Label label7;
+        private Panel PnlPlayersHand;
+        private Panel PnlComputersHand;
+        private Panel panel1;
     }
 }

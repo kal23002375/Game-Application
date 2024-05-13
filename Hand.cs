@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -102,6 +103,26 @@ namespace ProjectName
         public void Clear() // 9
         {
             _Cards.Clear();
+        }
+        public List<PlayingCard> ReturnHand()
+        {
+            return _Cards;
+        }
+        public List<PictureBox> CreatePictures()
+        {
+            List<PictureBox> list = new List<PictureBox>();
+            foreach (var card in _Cards)
+            {
+                PictureBox picture = new PictureBox();
+                picture.Size = new Size(75, 150);
+                picture.SizeMode = PictureBoxSizeMode.StretchImage;
+                picture.Image = (Image)Properties.Resources.ResourceManager.GetObject(card.face.ToLower() + card.suit.ToString().ToLower());
+                picture.Location = new Point((_Cards.IndexOf(card)*80+5),5);
+                picture.BackColor= Color.White;
+                picture.BringToFront();
+                list.Add(picture);
+            }
+            return list;
         }
     }
 }

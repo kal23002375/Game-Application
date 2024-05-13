@@ -21,7 +21,7 @@ namespace ProjectName
         Hand PlayersHand;
         Hand ComputersHand;
         Deck GameDeck;
-        (Label, Label, Label, Label) Displays;
+        ( Label, Label) Displays;
         string Feedback = "";
         string Winner = "";
         /// <summary>
@@ -30,7 +30,7 @@ namespace ProjectName
         /// Deals 2 cards to each player
         /// </summary>
         /// <param name="displays"></param>
-        public Blackjack((Label, Label, Label, Label) displays) // 2
+        public Blackjack((Label, Label) displays) // 2
         {
             GameDeck = new Deck();
             PlayersHand = new Hand();
@@ -129,10 +129,12 @@ namespace ProjectName
         /// </summary>
         public void UpdateDisplay() // 6
         {
-            Displays.Item1.Text = PlayersHand.ToString();
-            Displays.Item2.Text = ComputersHand.ToString();
-            Displays.Item3.Text = PlayersHand.Value.ToString();
-            Displays.Item4.Text = ComputersHand.Value.ToString();
+            Displays.Item1.Text = "Score: "+PlayersHand.Value.ToString();
+            Displays.Item2.Text = "Score: " + ComputersHand.Value.ToString();
+        }
+        public (List<PictureBox>, List<PictureBox>) ReturnPictures()
+        {
+            return (PlayersHand.CreatePictures(),ComputersHand.CreatePictures());
         }
     }
 }
