@@ -81,6 +81,7 @@ namespace ProjectName
             {
                 ComputersHand.AddCard(GameDeck.Deal());
             }
+            UpdateDisplay();
             if (PlayersHand.Value > 21 && ComputersHand.Value > 21){
                 Feedback = "Nobody wins!";
                 Winner = "Draw";
@@ -120,7 +121,6 @@ namespace ProjectName
                 Winner = "Draw";
                 Feedback = "Draw";
             }
-            UpdateDisplay();
             return (Winner, Feedback,PlayersHand.Value,ComputersHand.Value);
         }
         /// <summary>

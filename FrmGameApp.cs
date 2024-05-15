@@ -337,6 +337,7 @@ namespace ProjectName {
             (Winner, Feedback, PlayersScore, ComputerScore) = blackjack.Stand(); //a
             if (Winner == "Player") //b
                 Winner = PlayersName;
+            UpdateBlackjack();
             DisplayGameResult(); //c
             BtnHit.Enabled = false; //d
             BtnStand.Enabled = false;
